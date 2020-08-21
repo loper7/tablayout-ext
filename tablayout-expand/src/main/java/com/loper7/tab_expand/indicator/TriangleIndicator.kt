@@ -1,0 +1,66 @@
+package com.loper7.tab_expand.indicator
+
+import android.annotation.SuppressLint
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.drawable.*
+import android.os.Build
+import android.view.Gravity
+import android.view.View
+import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
+import com.loper7.tab_expand.R
+import com.loper7.tab_expand.ext.dip2px
+
+
+/**
+ *
+ * @CreateDate:     2020/8/4 17:36
+ * @Description:    TriangleIndicator 三角
+ * @Author:         LOPER7
+ * @Email:          loper7@163.com
+ */
+open class TriangleIndicator : BaseIndicator() {
+
+    protected var path = Path.POSITIVE
+    private var drawable: Drawable? = null
+
+    fun setPath(path: Path): TriangleIndicator {
+        this.path = path
+        return this
+    }
+
+
+    @SuppressLint("NewApi")
+    override fun bind() {
+        if (drawable == null) {
+            drawable = if (path == Path.POSITIVE) {
+                ContextCompat.getDrawable(context!!, R.drawable.tab_indicator_triangle_z)!!
+            } else {
+                ContextCompat.getDrawable(context!!, R.drawable.tab_indicator_triangle_f)!!
+            }
+        }
+
+        if (width == 0)
+            width = context!!.dip2px(12f)
+        if (height == 0)
+            height = context!!.dip2px(12f)
+
+        val layerDrawable = LayerDrawable(arrayOf(drawable))
+        layerDrawable.setLayerHeight(0, height)
+        layerDrawable.setLayerWidth(0, width)
+        layerDrawable.setLayerGravity(0, Gravity.CENTER)
+
+        tabLayout?.setSelectedTabIndicator(layerDrawable)
+    }
+
+
+    enum class Path {
+        /**
+         * POSITIVE 正
+         * NEGATIVE 反
+         */
+        POSITIVE,
+        NEGATIVE
+    }
+}

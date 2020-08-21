@@ -1,0 +1,3 @@
+rootProject.name='tablayout-ext-simple'
+include ':app'
+include ':tablayout-expand'

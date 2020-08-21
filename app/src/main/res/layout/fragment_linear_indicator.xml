@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:text="Default"
+        android:textSize="12sp"
+        android:textColor="@color/colorDescription"/>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout_default"
+        android:layout_width="wrap_content"
+        app:tabIndicatorFullWidth="false"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:tabIndicatorHeight="3dp"
+        android:layout_gravity="center"
+        android:layout_height="40dp"
+        app:tabIndicatorColor="@color/colorAccent"
+        app:tabRippleColor="@android:color/transparent"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/colorTitle"
+        app:tabTextColor="@color/colorSubtext" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:text="LinearIndicator"
+        android:textColor="@color/colorDescription"
+        android:textSize="12sp" />
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        app:tabIndicatorFullWidth="false"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="40dp"
+        app:tabIndicatorHeight="3.5dp"
+        app:tabIndicatorColor="@color/colorAccent"
+        app:tabRippleColor="@android:color/transparent"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/colorTitle"
+        app:tabTextColor="@color/colorSubtext" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:text="LinearIndicator (w=35,h=3.5)"
+        android:textSize="12sp"
+        android:textColor="@color/colorDescription"/>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout1"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="40dp"
+        app:tabIndicatorColor="@color/colorAccent"
+        app:tabRippleColor="@android:color/transparent"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/colorTitle"
+        app:tabTextColor="@color/colorSubtext" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:text="LinearIndicator (w=5,h=5)"
+        android:textSize="12sp"
+        android:textColor="@color/colorDescription"/>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout2"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="40dp"
+        app:tabIndicatorColor="@color/colorAccent"
+        app:tabRippleColor="@android:color/transparent"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/colorTitle"
+        app:tabTextColor="@color/colorSubtext" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:text="LinearIndicator (w=auto,h=match,a=4)"
+        android:textSize="12sp"
+        android:textColor="@color/colorDescription"/>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout3"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        app:tabIndicatorGravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        app:tabIndicatorColor="@color/colorAccent"
+        app:tabRippleColor="@android:color/transparent"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="#FFFFFF"
+        app:tabTextColor="@color/colorSubtext" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:text="LinearIndicator (w=auto,h=22,a=auto)"
+        android:textSize="12sp"
+        android:textColor="@color/colorDescription"/>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout4"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        app:tabIndicatorGravity="center"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        app:tabIndicatorColor="#2058B87F"
+        app:tabRippleColor="@android:color/transparent"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/colorAccent"
+        app:tabTextColor="@color/colorSubtext" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
