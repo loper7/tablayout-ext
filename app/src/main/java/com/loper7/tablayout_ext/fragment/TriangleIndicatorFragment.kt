@@ -10,7 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayout
 import com.loper7.tab_expand.ext.buildIndicator
-import com.loper7.tab_expand.ext.dip2px
+import com.loper7.tab_expand.ext.toPx
 import com.loper7.tab_expand.indicator.TriangleIndicator
 import com.loper7.tablayout_ext.R
 import com.loper7.tablayout_ext.adapter.SimpleFragmentAdapter
@@ -54,8 +54,8 @@ class TriangleIndicatorFragment :Fragment() {
         // TriangleIndicator(w=10,h=10,p=NEGATIVE,g=top)
         tabLayout2.buildIndicator<TriangleIndicator>()
             .setPath(TriangleIndicator.Path.NEGATIVE)
-            .setWidth(context!!.dip2px(10f))
-            .setHeight(context!!.dip2px(10f))
+            .setWidth(10.toPx())
+            .setHeight(10.toPx())
             .setColor(ContextCompat.getColor(context!!,R.color.colorAccent))
             .setGravity(TabLayout.INDICATOR_GRAVITY_TOP)
             .bind()

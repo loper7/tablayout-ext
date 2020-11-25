@@ -12,7 +12,6 @@ import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import com.google.android.material.tabs.TabLayout
 import com.loper7.tab_expand.R
-import com.loper7.tab_expand.ext.dip2px
 
 
 /**
@@ -38,33 +37,45 @@ open class CustomIndicator : BaseIndicator() {
 
     @SuppressLint("NewApi")
     override fun bind() {
-        val layerDrawable = LayerDrawable(arrayOf(drawable))
-        layerDrawable.setLayerHeight(0, height)
-        layerDrawable.setLayerWidth(0, width)
-        layerDrawable.setLayerGravity(0, Gravity.CENTER)
+        tabLayout?.post {
 
-        if (width == 0 && height == 0)
-            tabLayout?.setSelectedTabIndicator(drawable)
-        else
-            tabLayout?.setSelectedTabIndicator(layerDrawable)
+            if(height==MATCH)
+                height = tabLayout?.height!!
 
-        //对自适应宽度进行处理
-        if (width <= 0 && tabLayout?.tabSelectedIndicator is LayerDrawable) {
-            (tabLayout?.tabSelectedIndicator as LayerDrawable).setLayerWidth(0, tabLayout?.getTabAt(0)!!.view.width)
-            tabLayout?.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-                override fun onTabReselected(tab: TabLayout.Tab?) {
-                }
+            val layerDrawable = LayerDrawable(arrayOf(drawable))
+            layerDrawable.setLayerHeight(0, height)
+            layerDrawable.setLayerWidth(0, width)
+            layerDrawable.setLayerGravity(0, Gravity.CENTER)
 
-                override fun onTabUnselected(tab: TabLayout.Tab?) {
-                }
+            if (width == 0 && height == 0)
+                tabLayout?.setSelectedTabIndicator(drawable)
+            else
+                tabLayout?.setSelectedTabIndicator(layerDrawable)
 
-                override fun onTabSelected(tab: TabLayout.Tab?) {
-                    tab?.apply {
-                        (tabLayout?.tabSelectedIndicator as LayerDrawable).setLayerWidth(0, tab.view.width)
+            //对自适应宽度进行处理
+            if (width <= 0 && tabLayout?.tabSelectedIndicator is LayerDrawable) {
+                (tabLayout?.tabSelectedIndicator as LayerDrawable).setLayerWidth(
+                    0,
+                    tabLayout?.getTabAt(0)!!.view.width
+                )
+                tabLayout?.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+                    override fun onTabReselected(tab: TabLayout.Tab?) {
                     }
-                }
 
-            })
+                    override fun onTabUnselected(tab: TabLayout.Tab?) {
+                    }
+
+                    override fun onTabSelected(tab: TabLayout.Tab?) {
+                        tab?.apply {
+                            (tabLayout?.tabSelectedIndicator as LayerDrawable).setLayerWidth(
+                                0,
+                                tab.view.width
+                            )
+                        }
+                    }
+
+                })
+            }
         }
     }
 }

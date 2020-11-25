@@ -9,11 +9,20 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.loper7.tab_expand.ext.buildIndicator
+import com.loper7.tab_expand.ext.buildText
+import com.loper7.tab_expand.ext.toPx
+import com.loper7.tab_expand.indicator.BaseIndicator
 import com.loper7.tablayout_ext.adapter.SimpleFragmentAdapter
-import com.loper7.tab_expand.ext.dip2px
 import com.loper7.tab_expand.indicator.LinearIndicator
+import com.loper7.tab_expand.text.BaseText
 import com.loper7.tablayout_ext.R
 import kotlinx.android.synthetic.main.fragment_linear_indicator.*
+import kotlinx.android.synthetic.main.fragment_linear_indicator.tabLayout
+import kotlinx.android.synthetic.main.fragment_linear_indicator.tabLayout1
+import kotlinx.android.synthetic.main.fragment_linear_indicator.tabLayout2
+import kotlinx.android.synthetic.main.fragment_linear_indicator.tabLayout3
+import kotlinx.android.synthetic.main.fragment_linear_indicator.viewPager
+import kotlinx.android.synthetic.main.fragment_other_indicator.*
 
 /**
  *
@@ -50,33 +59,41 @@ class LinearIndicatorFragment :Fragment() {
 
         // LinearIndicator
         tabLayout.buildIndicator<LinearIndicator>().bind()
+        tabLayout.buildText<BaseText>()
+            .setNormalTextBold(false)
+            .setSelectTextBold(true)
+            .bind()
         // LinearIndicator (w=35,h=3.5)
         tabLayout1.buildIndicator<LinearIndicator>()
-            .setWidth(context!!.dip2px(35f))
-            .setHeight(context!!.dip2px(3.5f))
+            .setWidth(35.toPx())
+            .setHeight(3.5.toPx())
             .bind()
         // LinearIndicator (w=5,h=5)
         tabLayout2.buildIndicator<LinearIndicator>()
-            .setWidth(context!!.dip2px(5f))
-            .setHeight(context!!.dip2px(5f))
+            .setWidth(5.toPx())
+            .setHeight(5.toPx())
+            .bind()
+        tabLayout2.buildText<BaseText>()
+            .setNormalTextBold(false)
+            .setSelectTextBold(true)
             .bind()
         // LinearIndicator (w=auto,h=match,a=4)
-        tabLayout3.post {
-            tabLayout3.buildIndicator<LinearIndicator>()
-                .setAngle(context!!.dip2px(4f))
-                .setHeight(tabLayout3.height)
-                .bind()
-        }
+        tabLayout3.buildIndicator<LinearIndicator>()
+            .setAngle(4.toPx())
+            .setHeight(BaseIndicator.MATCH)
+            .setWidth(BaseIndicator.MATCH)
+            .bind()
         // LinearIndicator (w=auto,h=22,a=auto)
-        tabLayout4.post {
-            tabLayout4.buildIndicator<LinearIndicator>()
-                .setHeight(context!!.dip2px(22f))
-                .bind()
-        }
+        tabLayout4.buildIndicator<LinearIndicator>()
+            .setHeight(22.toPx())
+            .bind()
+        tabLayout4.buildText<BaseText>()
+            .setNormalTextBold(true)
+            .setSelectTextBold(true)
+            .bind()
 
         tabLayout.getTabAt(1)?.orCreateBadge?.backgroundColor=Color.parseColor("#FF9900")
         tabLayout.getTabAt(1)?.orCreateBadge?.number=6
-
 
     }
 }

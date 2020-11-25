@@ -10,7 +10,8 @@ import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import com.loper7.tab_expand.R
-import com.loper7.tab_expand.ext.dip2px
+import com.loper7.tab_expand.ext.toDp
+import com.loper7.tab_expand.ext.toPx
 
 
 /**
@@ -33,25 +34,31 @@ open class TriangleIndicator : BaseIndicator() {
 
     @SuppressLint("NewApi")
     override fun bind() {
-        if (drawable == null) {
-            drawable = if (path == Path.POSITIVE) {
-                ContextCompat.getDrawable(context!!, R.drawable.tab_indicator_triangle_z)!!
-            } else {
-                ContextCompat.getDrawable(context!!, R.drawable.tab_indicator_triangle_f)!!
+        tabLayout?.post {
+            if(height==MATCH)
+                height = tabLayout?.height!!
+
+            if (drawable == null) {
+                drawable = if (path == Path.POSITIVE) {
+                    ContextCompat.getDrawable(context!!, R.drawable.tab_indicator_triangle_z)!!
+                } else {
+                    ContextCompat.getDrawable(context!!, R.drawable.tab_indicator_triangle_f)!!
+                }
             }
+
+            if (width == 0)
+                width = 12.toPx()
+            if (height == 0)
+                height = 12.toPx()
+
+            val layerDrawable = LayerDrawable(arrayOf(drawable))
+            layerDrawable.setLayerHeight(0, height)
+            layerDrawable.setLayerWidth(0, width)
+            layerDrawable.setLayerGravity(0, Gravity.CENTER)
+
+            tabLayout?.setSelectedTabIndicator(layerDrawable)
         }
 
-        if (width == 0)
-            width = context!!.dip2px(12f)
-        if (height == 0)
-            height = context!!.dip2px(12f)
-
-        val layerDrawable = LayerDrawable(arrayOf(drawable))
-        layerDrawable.setLayerHeight(0, height)
-        layerDrawable.setLayerWidth(0, width)
-        layerDrawable.setLayerGravity(0, Gravity.CENTER)
-
-        tabLayout?.setSelectedTabIndicator(layerDrawable)
     }
 
 
