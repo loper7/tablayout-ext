@@ -9,13 +9,10 @@
 google 原生 Tablayout( com.google.android.material.tabs.TabLayout) 零入侵拓展，帮你更便捷的使用原生TabLayout实现一些UI效果
 <br/>
 ## 预览
-加载不出图片可以前往 [简书](https://www.jianshu.com/p/5610db432512) 或 [掘金](https://juejin.im/post/5ecf7699e51d4578644e9320) 查看
-<br/>
+待补充
 <br/>
 ## 快速体验
-![](https://github.com/loperSeven/DateTimePicker/blob/master/images/app_qrcode.png)
-<br/>
-或者&ensp;[点击下载](http://fir.cqtencent.cn/dtpicker)
+待补充
 <br/>
 ## 如何引入
 Step 1. 添加 JitPack repository 
@@ -37,9 +34,11 @@ dependencies {
 
 ```
 ## 如何使用
+待补充
 
-<br/>
+
 ## 更新日志
+待补充
 
 ## 混淆
 ```
