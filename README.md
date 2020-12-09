@@ -25,17 +25,75 @@ Step 2. 添加 Gradle依赖
 ```
 dependencies {
     ...
+    implementation 'com.google.android.material:material:1.2.1'//google material 包
     implementation 'com.github.loperSeven:tablayout-ext:$version'//具体版本请看顶部jitpack标识，仅支持androidx
 }
 
 
 ```
 ## 如何使用
-待补充
+注意：此库只是针对Tablayout做一些便捷性拓展，具体Tablayout属性及用法请查阅：[developers 文档](https://developer.android.com/reference/com/google/android/material/tabs/TabLayout)
+#### Indicator
+```kotlin
+  /**
+    * 线性指示器
+    * buildIndicator<> 指定指示器类
+    * setHeight() 设置指示器高度，默认为tablayout指定tabIndicatorHeight高度
+    * setWidth() 设置指示器宽度，若tablayout设置了tabIndicatorFullWidth=true，则默认为tab项宽度，否则为tab实际文字宽度
+    * setGravity() 等同于 Tablayout.setSelectedTabIndicatorGravity()
+    * setColor() 等同于 Tablayout.setSelectedTabIndicatorColor()
+    */
+ tabLayout.buildIndicator<LinearIndicator>()
+            .setHeight(22.toPx())
+            .setWidth(BaseIndicator.MATCH)
+            .setGravity(TabLayout.INDICATOR_GRAVITY_TOP)
+            .setColor(ContextCompat.getColor(context!!,R.color.colorAccent))
+            .bind()
+ /**
+    * 三角形指示器
+    * buildIndicator<> 指定指示器类
+    * setPath 设置三角形样式 [POSITIVE]正 [NEGATIVE] 反
+    */
+ tabLayout.buildIndicator<TriangleIndicator>()
+            .setPath(TriangleIndicator.Path.NEGATIVE)//因path为该指示器专有属性，故需先于其他属性调用。
+            .setWidth(10.toPx())
+            .setHeight(10.toPx())
+            .setColor(ContextCompat.getColor(context!!,R.color.colorAccent))
+            .setGravity(TabLayout.INDICATOR_GRAVITY_TOP)
+            .bind()
+	    
+ /**
+    * 自定义deawable指示器
+    * buildIndicator<> 指定指示器类
+    * setDrawable 设置指示器drawable 可传入 Drawable 或 @DrawableRes resId:Int
+    * 其他属性同上，皆为基础属性
+    */
+  tabLayout.buildIndicator<CustomIndicator>()
+            .setDrawable(ContextCompat.getDrawable(context!!,R.mipmap.ic_indicator_fire)!!)
+            .bind()
+	    
+```
+如需拓展更多类型指示器，只需继承自BaseIndicator，添加专属属性，在bind()方法中实现逻辑即可。
+#### Text
+```kotlin
+ /**
+    * tab文字设置
+    * buildText<> 指定文字设置类
+    * setNormalTextBold() 未选中状态下文字是否加粗  默认false
+    * setSelectTextBold() 选中状态下文字是否加粗 默认true
+    */
+  tabLayout.buildText<BaseText>()
+            .setNormalTextBold(true)
+            .setSelectTextBold(true)
+            .bind()
+```
 
 
-## 更新日志
-待补充
+## 更新计划
+* Indicator 动画拓展
+* Text 文字大小设置
+
+您的star是我更新的动力
 
 ## 混淆
 ```
