@@ -16,13 +16,13 @@ import com.loper7.tablayout_ext.adapter.SimpleFragmentAdapter
 import com.loper7.tab_expand.indicator.LinearIndicator
 import com.loper7.tab_expand.text.BaseText
 import com.loper7.tablayout_ext.R
+import com.loper7.tablayout_ext.adapter.CustomFragmentAdapter
 import kotlinx.android.synthetic.main.fragment_linear_indicator.*
 import kotlinx.android.synthetic.main.fragment_linear_indicator.tabLayout
 import kotlinx.android.synthetic.main.fragment_linear_indicator.tabLayout1
 import kotlinx.android.synthetic.main.fragment_linear_indicator.tabLayout2
 import kotlinx.android.synthetic.main.fragment_linear_indicator.tabLayout3
 import kotlinx.android.synthetic.main.fragment_linear_indicator.viewPager
-import kotlinx.android.synthetic.main.fragment_other_indicator.*
 
 /**
  *
@@ -68,6 +68,10 @@ class LinearIndicatorFragment :Fragment() {
             .setWidth(35.toPx())
             .setHeight(3.5.toPx())
             .bind()
+        tabLayout1.buildText<BaseText>()
+            .setNormalTextBold(false)
+            .setSelectTextBold(true)
+            .bind()
         // LinearIndicator (w=5,h=5)
         tabLayout2.buildIndicator<LinearIndicator>()
             .setWidth(5.toPx())
@@ -82,6 +86,10 @@ class LinearIndicatorFragment :Fragment() {
             .setAngle(4.toPx())
             .setHeight(BaseIndicator.MATCH)
             .setWidth(BaseIndicator.MATCH)
+            .bind()
+        tabLayout3.buildText<BaseText>()
+            .setNormalTextBold(true)
+            .setSelectTextBold(true)
             .bind()
         // LinearIndicator (w=auto,h=22,a=auto)
         tabLayout4.buildIndicator<LinearIndicator>()

@@ -9,6 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:text="TriangleIndicator"
         android:textColor="@color/colorDescription"
@@ -17,7 +18,9 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="wrap_content"
-        android:layout_height="45dp"
+        android:layout_height="50dp"
+        android:paddingBottom="5dp"
+        android:background="#F6F6F6"
         android:layout_gravity="center"
         app:tabIndicatorColor="@color/colorAccent"
         app:tabIndicatorFullWidth="false"
@@ -31,6 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:text="TriangleIndicator(p=NEGATIVE)"
         android:textColor="@color/colorDescription"
         android:textSize="12sp" />
@@ -38,7 +42,8 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout1"
         android:layout_width="wrap_content"
-        android:layout_height="45dp"
+        android:layout_height="50dp"
+        android:background="#F6F6F6"
         android:layout_gravity="center"
         app:tabIndicatorColor="@color/colorTitle"
         app:tabIndicatorFullWidth="false"
@@ -51,6 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:text="TriangleIndicator(w=10,h=10,p=NEGATIVE,g=top)"
         android:textColor="@color/colorDescription"
         android:textSize="12sp" />
@@ -58,9 +64,9 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout2"
         android:layout_width="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_height="35dp"
+        android:layout_height="40dp"
+        android:paddingTop="5dp"
+        android:background="#F6F6F6"
         android:layout_gravity="center"
         app:tabIndicatorColor="@color/colorAccent"
         app:tabIndicatorFullWidth="false"
