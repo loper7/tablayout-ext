@@ -3,16 +3,16 @@
 [![](https://jitpack.io/v/loperSeven/tablayout-ext.svg)](https://jitpack.io/#loperSeven/DateTimePicker)&ensp;[![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)&ensp;[![](https://img.shields.io/badge/platform-android-green)](https://github.com/loperSeven)&ensp;[![](https://img.shields.io/badge/license-MIT-blue)](https://opensource.org/licenses/MIT)
 <br/>
 ## Language
-中文 | [English](https://github.com/loperSeven/DateTimePicker/blob/master/README_EN.md)
+ [中文](https://github.com/loperSeven/tablayout-ext/edit/master/README.md) | English
 <br/>
 <br/>
-google 原生 Tablayout( com.google.android.material.tabs.TabLayout) 零入侵拓展，帮你更便捷的使用原生TabLayout实现一些UI效果
+The Zero invasion expansion of com.google.android.material.tabs.TabLayout, allows you to use TabLayout to achieve UI effects more conveniently
 <br/>
-## 预览
+## Preview
 ![](https://github.com/loperSeven/tablayout-ext/blob/master/image/demo_gif.gif)
 <br/>
-## 如何引入
-Step 1. 添加 JitPack repository 
+## Import
+Step 1. add JitPack repository 
 ```
 allprojects {
 	repositories {
@@ -21,27 +21,25 @@ allprojects {
 	}
 }
 ```
-Step 2. 添加 Gradle依赖
+Step 2. add Gradle
 ```
 dependencies {
     ...
-    implementation 'com.google.android.material:material:1.2.1'//google material 包
-    implementation 'com.github.loperSeven:tablayout-ext:$version'//具体版本请看顶部jitpack标识，仅支持androidx
+    implementation 'com.google.android.material:material:1.2.1'//google material package
+    implementation 'com.github.loperSeven:tablayout-ext:$version'//see the jitpack logo at the top for the specific version, only supports androidx
 }
 
 
 ```
-## 如何使用
-注意：此库只是针对Tablayout做一些便捷性拓展，具体Tablayout属性及用法请查阅：[developers 文档](https://developer.android.com/reference/com/google/android/material/tabs/TabLayout)
+## Use
+Note: This library is only for some convenience expansions for Tablayout, please refer to the specific Tablayout attributes and usage：[developers wiki](https://developer.android.com/reference/com/google/android/material/tabs/TabLayout)
 #### Indicator
 ```kotlin
   /**
-    * 线性指示器
-    * buildIndicator<> 指定指示器类
-    * setHeight() 设置指示器高度，默认为tablayout指定tabIndicatorHeight高度
-    * setWidth() 设置指示器宽度，若tablayout设置了tabIndicatorFullWidth=true，则默认为tab项宽度，否则为tab实际文字宽度
-    * setGravity() 等同于 Tablayout.setSelectedTabIndicatorGravity()
-    * setColor() 等同于 Tablayout.setSelectedTabIndicatorColor()
+    * setHeight() Set indicator height
+    * setWidth() Set indicator width
+    * setGravity() = Tablayout.setSelectedTabIndicatorGravity()
+    * setColor() = Tablayout.setSelectedTabIndicatorColor()
     */
  tabLayout.buildIndicator<LinearIndicator>()
             .setHeight(22.toPx())
@@ -50,12 +48,10 @@ dependencies {
             .setColor(ContextCompat.getColor(context!!,R.color.colorAccent))
             .bind()
  /**
-    * 三角形指示器
-    * buildIndicator<> 指定指示器类
-    * setPath 设置三角形样式 [POSITIVE]正 [NEGATIVE] 反
+    * setPath  [POSITIVE] or [NEGATIVE] 
     */
  tabLayout.buildIndicator<TriangleIndicator>()
-            .setPath(TriangleIndicator.Path.NEGATIVE)//因path为该指示器专有属性，故需先于其他属性调用。
+            .setPath(TriangleIndicator.Path.NEGATIVE)
             .setWidth(10.toPx())
             .setHeight(10.toPx())
             .setColor(ContextCompat.getColor(context!!,R.color.colorAccent))
@@ -63,25 +59,17 @@ dependencies {
             .bind()
 	    
  /**
-    * 自定义deawable指示器
-    * buildIndicator<> 指定指示器类
-    * setDrawable 设置指示器drawable 可传入 Drawable 或 @DrawableRes resId:Int
-    * 其他属性同上，皆为基础属性
+    * setDrawable set Drawable or @DrawableRes resId:Int
+    * Same as above
     */
   tabLayout.buildIndicator<CustomIndicator>()
             .setDrawable(ContextCompat.getDrawable(context!!,R.mipmap.ic_indicator_fire)!!)
             .bind()
 	    
 ```
-如需拓展更多类型指示器，只需继承自BaseIndicator，添加专属属性，在bind()方法中实现逻辑即可。
+If you need to expand more type indicators, you only need to inherit from BaseIndicator, add exclusive attributes, and implement logic in the bind() method.
 #### Text
 ```kotlin
- /**
-    * tab文字设置
-    * buildText<> 指定文字设置类
-    * setNormalTextBold() 未选中状态下文字是否加粗  默认false
-    * setSelectTextBold() 选中状态下文字是否加粗 默认true
-    */
   tabLayout.buildText<BaseText>()
             .setNormalTextBold(true)
             .setSelectTextBold(true)
@@ -89,22 +77,20 @@ dependencies {
 ```
 
 
-## 更新计划
-* Indicator 动画拓展
-* Text 文字大小设置
+## Update plan
+* Indicator anim expansion
+* Text set textSize
 
-您的star是我更新的动力
-
-## 混淆
+## ignore
 ```
 -dontwarn com.loper7.tablayout-ext.**
 -keep class com.loper7.tablayout-ext.**{*;}
 ```
 
-## 联系我
+## contact me
 Issues：[Issues](https://github.com/loperSeven/tablayout-ext/issues)
 <br/>
-邮箱：loper7@163.com
+Email：loper7ins@gmail.com
 <br/>
 ## Licenses
 ```
