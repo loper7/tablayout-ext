@@ -9,7 +9,7 @@
 google 原生 Tablayout( com.google.android.material.tabs.TabLayout) 零入侵拓展，帮你更便捷的使用原生TabLayout实现一些UI效果
 <br/>
 ## 预览
-![](https://github.com/loperSeven/tablayout-ext/blob/master/image/gif.gif)
+![](https://github.com/loperSeven/tablayout-ext/blob/master/image/demo_gif.gif)
 <br/>
 ## 如何引入
 Step 1. 添加 JitPack repository 
