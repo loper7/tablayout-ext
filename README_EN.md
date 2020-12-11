@@ -3,7 +3,7 @@
 [![](https://jitpack.io/v/loperSeven/tablayout-ext.svg)](https://jitpack.io/#loperSeven/DateTimePicker)&ensp;[![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)&ensp;[![](https://img.shields.io/badge/platform-android-green)](https://github.com/loperSeven)&ensp;[![](https://img.shields.io/badge/license-MIT-blue)](https://opensource.org/licenses/MIT)
 <br/>
 ## Language
- [中文](https://github.com/loperSeven/tablayout-ext/edit/master/README.md) | English
+ [中文](https://github.com/loperSeven/tablayout-ext) | English
 <br/>
 <br/>
 The Zero invasion expansion of com.google.android.material.tabs.TabLayout, allows you to use TabLayout to achieve UI effects more conveniently
