@@ -11,7 +11,7 @@ google 原生 Tablayout( com.google.android.material.tabs.TabLayout) 零入侵�
 ## 预览
 ![](https://github.com/loperSeven/tablayout-ext/blob/master/image/demo_gif.gif)
 <br/>
-无法加载可前往 [简书](https://www.jianshu.com/p/63fe08bd67da)查看
+无法加载可前往 [简书](https://www.jianshu.com/p/63fe08bd67da) 或 [掘金](https://juejin.cn/post/6904468604419473422)查看
 ## 如何引入
 Step 1. 添加 JitPack repository 
 ```
