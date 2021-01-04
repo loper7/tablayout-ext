@@ -3,7 +3,7 @@
 [![](https://jitpack.io/v/loperSeven/tablayout-ext.svg)](https://jitpack.io/#loperSeven/DateTimePicker)&ensp;[![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)&ensp;[![](https://img.shields.io/badge/platform-android-green)](https://github.com/loperSeven)&ensp;[![](https://img.shields.io/badge/license-MIT-blue)](https://opensource.org/licenses/MIT)
 <br/>
 ## Language
-中文 | [English](https://github.com/loperSeven/DateTimePicker/blob/master/README_EN.md)
+中文 | [English](https://github.com/loperSeven/tablayout-ext/blob/master/README_EN.md)
 <br/>
 <br/>
 google 原生 Tablayout( com.google.android.material.tabs.TabLayout) 零入侵拓展，帮你更便捷的使用原生TabLayout实现一些UI效果
@@ -11,6 +11,7 @@ google 原生 Tablayout( com.google.android.material.tabs.TabLayout) 零入侵�
 ## 预览
 ![](https://github.com/loperSeven/tablayout-ext/blob/master/image/demo_gif.gif)
 <br/>
+无法加载可前往 [简书](https://www.jianshu.com/p/63fe08bd67da) 或 [掘金](https://juejin.cn/post/6904468604419473422)查看
 ## 如何引入
 Step 1. 添加 JitPack repository 
 ```
