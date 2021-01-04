@@ -94,7 +94,7 @@ dependencies {
 
 ## 更新计划
 * Indicator 动画拓展
-* ~~Text 文字大小设置
+* ~~Text 文字大小设置~~
 
 您的star是我更新的动力
 
