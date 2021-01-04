@@ -73,13 +73,10 @@ If you need to expand more type indicators, you only need to inherit from BaseIn
   tabLayout.buildText<BaseText>()
             .setNormalTextBold(true)
             .setSelectTextBold(true)
+	    .setNormalTextSize(16f)
+            .setSelectTextSize(18f)
             .bind()
 ```
-
-
-## Update plan
-* Indicator anim expansion
-* Text set textSize
 
 ## ignore
 ```
