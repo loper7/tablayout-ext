@@ -2,10 +2,13 @@ package com.loper7.tab_expand.text
 
 import android.R
 import android.content.Context
+import android.view.Gravity
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.ColorInt
+import androidx.annotation.Dimension
 import androidx.annotation.Px
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.google.android.material.tabs.TabLayout
 import com.loper7.tab_expand.ext.toPx
 import com.loper7.tab_expand.indicator.BaseIndicator
@@ -24,6 +27,8 @@ open class BaseText {
     protected var tabLayout: TabLayout? = null
     protected var normalTextBold: Boolean = false
     protected var selectTextBold: Boolean = false
+    protected var normalTextSize: Float = 15f
+    protected var selectTextSize: Float = 15f
 
     fun bindTabLayout(tabLayout: TabLayout) {
         this.tabLayout = tabLayout
@@ -40,40 +45,53 @@ open class BaseText {
         return this
     }
 
+    fun setNormalTextSize(normalTextSize: Float): BaseText {
+        this.normalTextSize = normalTextSize
+        return this
+    }
+
+    fun setSelectTextSize(selectTextSize: Float): BaseText {
+        this.selectTextSize = selectTextSize
+        return this
+    }
+
     fun bind() {
         tabLayout?.apply {
-            for (i in 0 until tabLayout!!.tabCount) {
-                var tab = tabLayout!!.getTabAt(i)
-                if (tab != null) {
-                    val title =
-                        ((tabLayout?.getChildAt(0) as LinearLayout).getChildAt(tab.position) as LinearLayout).getChildAt(
-                            1
-                        ) as TextView
-                    if (tab.isSelected)
-                        title.paint.isFakeBoldText = selectTextBold
-                    else
-                        title.paint.isFakeBoldText = normalTextBold
+            for (i in 0 until tabCount) {
+                getTabAt(i)?.let {
+                    it.customView = TextView(context).apply {
+                        text = it.text
+                        textSize = if (isSelected) selectTextSize else normalTextSize
+                        if (isSelected)
+                            paint?.isFakeBoldText = selectTextBold
+                        else
+                            paint?.isFakeBoldText = normalTextBold
+                        gravity = Gravity.CENTER
+                        setTextColor(tabTextColors)
+                    }
                 }
             }
 
-            tabLayout?.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
                 override fun onTabReselected(tab: TabLayout.Tab?) {
+                    (tab?.customView as? TextView)?.apply {
+                        textSize = selectTextSize
+                        paint?.isFakeBoldText = selectTextBold
+                    }
                 }
 
                 override fun onTabUnselected(tab: TabLayout.Tab?) {
-                    val title =
-                        ((tabLayout?.getChildAt(0) as LinearLayout).getChildAt(tab!!.position) as LinearLayout).getChildAt(
-                            1
-                        ) as TextView
-                    title.paint.isFakeBoldText = normalTextBold
+                    (tab?.customView as? TextView)?.apply {
+                        textSize = normalTextSize
+                        paint?.isFakeBoldText = normalTextBold
+                    }
                 }
 
                 override fun onTabSelected(tab: TabLayout.Tab?) {
-                    val title =
-                        ((tabLayout?.getChildAt(0) as LinearLayout).getChildAt(tab!!.position) as LinearLayout).getChildAt(
-                            1
-                        ) as TextView
-                    title.paint.isFakeBoldText = selectTextBold
+                    (tab?.customView as? TextView)?.apply {
+                        textSize = selectTextSize
+                        paint?.isFakeBoldText = selectTextBold
+                    }
                 }
 
             })

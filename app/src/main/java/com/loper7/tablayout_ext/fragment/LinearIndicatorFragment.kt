@@ -62,6 +62,8 @@ class LinearIndicatorFragment :Fragment() {
         tabLayout.buildText<BaseText>()
             .setNormalTextBold(false)
             .setSelectTextBold(true)
+            .setNormalTextSize(16f)
+            .setSelectTextSize(18f)
             .bind()
         // LinearIndicator (w=35,h=3.5)
         tabLayout1.buildIndicator<LinearIndicator>()

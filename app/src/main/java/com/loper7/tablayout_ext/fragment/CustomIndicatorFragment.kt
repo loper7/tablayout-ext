@@ -68,6 +68,8 @@ class CustomIndicatorFragment :Fragment() {
         tabLayout.buildText<BaseText>()
             .setNormalTextBold(false)
             .setSelectTextBold(true)
+            .setNormalTextSize(16f)
+            .setSelectTextSize(18f)
             .bind()
         // custom2
         tabLayout1.buildIndicator<CustomIndicator>()
