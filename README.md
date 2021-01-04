@@ -82,8 +82,8 @@ dependencies {
     * buildText<> 指定文字设置类
     * setNormalTextBold() 未选中状态下文字是否加粗  默认false
     * setSelectTextBold() 选中状态下文字是否加粗 默认true
-    * setNormalTextSize() 未选中状态下文字大小 默认15f（单位sp）
-    * setSelectTextSize() 选中状态下文字大小 默认15f（单位sp）
+    * setNormalTextSize() 未选中状态下文字大小 默认14f（单位sp）
+    * setSelectTextSize() 选中状态下文字大小 默认14f（单位sp）
     */
   tabLayout.buildText<BaseText>()
             .setNormalTextBold(true)
