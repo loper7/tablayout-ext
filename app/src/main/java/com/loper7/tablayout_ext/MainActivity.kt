@@ -25,7 +25,10 @@ class MainActivity : AppCompatActivity() {
         tabLayout.setupWithViewPager(viewPager)
 
         tabLayout.buildIndicator<LinearIndicator>().bind()
-        tabLayout.buildText<BaseText>().setSelectTextBold(true).bind()
+        tabLayout.buildText<BaseText>()
+            .setNormalTextBold(true)
+            .setSelectTextSize(15f)
+            .setSelectTextBold(true).bind()
 
     }
 }

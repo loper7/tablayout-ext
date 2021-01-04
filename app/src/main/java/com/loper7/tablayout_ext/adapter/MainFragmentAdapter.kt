@@ -28,9 +28,9 @@ class MainFragmentAdapter(fm:FragmentManager) : FragmentStatePagerAdapter(fm) {
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when(position){
-            0-> "Linear"
-            1-> "Triangle"
-            2-> "Custom"
+            0-> "LINEAR"
+            1-> "TRIANGLE"
+            2-> "CUSTOM"
             else->""
         }
     }

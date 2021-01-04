@@ -22,12 +22,12 @@ class SimpleFragmentAdapter(fm:FragmentManager) : FragmentStatePagerAdapter(fm) 
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when(position){
-            0-> "Java"
-            1-> "Object-c"
-            2-> "Flutter"
-            3-> "Kotlin"
-            4-> "Swift"
-            5-> "React Native"
+            0-> "JAVA"
+            1-> "OBJECT-C"
+            2-> "FLUTTER"
+            3-> "KOTLIN"
+            4-> "SWIFT"
+            5-> "REACT NATIVE"
             else-> "PHP"
         }
     }

@@ -27,8 +27,8 @@ open class BaseText {
     protected var tabLayout: TabLayout? = null
     protected var normalTextBold: Boolean = false
     protected var selectTextBold: Boolean = false
-    protected var normalTextSize: Float = 15f
-    protected var selectTextSize: Float = 15f
+    protected var normalTextSize: Float = 14f
+    protected var selectTextSize: Float = 14f
 
     fun bindTabLayout(tabLayout: TabLayout) {
         this.tabLayout = tabLayout
@@ -76,6 +76,7 @@ open class BaseText {
                 override fun onTabReselected(tab: TabLayout.Tab?) {
                     (tab?.customView as? TextView)?.apply {
                         textSize = selectTextSize
+
                         paint?.isFakeBoldText = selectTextBold
                     }
                 }
