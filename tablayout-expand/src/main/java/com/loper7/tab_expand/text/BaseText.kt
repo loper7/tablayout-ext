@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.annotation.Dimension
 import androidx.annotation.Px
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.google.android.material.tabs.TabLayout
 import com.loper7.tab_expand.ext.toPx
 import com.loper7.tab_expand.indicator.BaseIndicator

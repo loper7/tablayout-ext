@@ -1,12 +1,14 @@
 package com.loper7.tablayout_ext.fragment
 
 import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -35,11 +37,15 @@ import kotlinx.android.synthetic.main.fragment_other_indicator.viewPager
  * @Author:         LOPER7
  * @Email:          loper7@163.com
  */
-class CustomIndicatorFragment :Fragment() {
+class CustomIndicatorFragment : Fragment() {
     var mRootView: View? = null
     private lateinit var adapter: CustomFragmentAdapter
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         if (mRootView == null) {
             mRootView = View.inflate(context, R.layout.fragment_other_indicator, null)
         }
@@ -59,9 +65,11 @@ class CustomIndicatorFragment :Fragment() {
         tabLayout4.setupWithViewPager(viewPager)
 
 
+
+
         // custom1
         tabLayout.buildIndicator<CustomIndicator>()
-            .setDrawable(ContextCompat.getDrawable(context!!,R.mipmap.ic_indicator_fire)!!)
+            .setDrawable(ContextCompat.getDrawable(context!!, R.mipmap.ic_indicator_fire)!!)
             .setWidth(15.toPx())
             .setHeight(15.toPx())
             .bind()
@@ -73,7 +81,7 @@ class CustomIndicatorFragment :Fragment() {
             .bind()
         // custom2
         tabLayout1.buildIndicator<CustomIndicator>()
-            .setDrawable(ContextCompat.getDrawable(context!!,R.mipmap.ic_indicator_t)!!)
+            .setDrawable(ContextCompat.getDrawable(context!!, R.mipmap.ic_indicator_t)!!)
             .setWidth(BaseIndicator.MATCH)
             .setHeight(BaseIndicator.MATCH)
             .bind()
@@ -83,7 +91,7 @@ class CustomIndicatorFragment :Fragment() {
             .bind()
         // custom3
         tabLayout2.buildIndicator<CustomIndicator>()
-            .setDrawable(ContextCompat.getDrawable(context!!,R.mipmap.ic_indicator_finger)!!)
+            .setDrawable(ContextCompat.getDrawable(context!!, R.mipmap.ic_indicator_finger)!!)
             .setWidth(15.toPx())
             .setHeight(15.toPx())
             .bind()
@@ -93,7 +101,7 @@ class CustomIndicatorFragment :Fragment() {
             .bind()
         // custom4
         tabLayout3.buildIndicator<CustomIndicator>()
-            .setDrawable(ContextCompat.getDrawable(context!!,R.mipmap.ic_indicator_index)!!)
+            .setDrawable(ContextCompat.getDrawable(context!!, R.mipmap.ic_indicator_index)!!)
             .setHeight(8.toPx())
             .setWidth(50.toPx())
             .bind()
@@ -103,7 +111,7 @@ class CustomIndicatorFragment :Fragment() {
             .bind()
         //custom5
         tabLayout4.buildIndicator<CustomIndicator>()
-            .setDrawable(ColorDrawable(ContextCompat.getColor(context!!,R.color.colorAccent)))
+            .setDrawable(ColorDrawable(ContextCompat.getColor(context!!, R.color.colorAccent)))
             .setHeight(BaseIndicator.MATCH)
             .setWidth(BaseIndicator.MATCH)
             .bind()
@@ -113,4 +121,5 @@ class CustomIndicatorFragment :Fragment() {
             .bind()
 
     }
+
 }
