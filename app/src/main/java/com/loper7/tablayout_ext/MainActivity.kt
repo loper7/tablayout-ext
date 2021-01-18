@@ -19,16 +19,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         StatusBarHelper.setDarkStatusIcon(this,true)
 
+
+
         adapter = MainFragmentAdapter(supportFragmentManager)
         viewPager.adapter = adapter
         viewPager.offscreenPageLimit = 3
         tabLayout.setupWithViewPager(viewPager)
 
         tabLayout.buildIndicator<LinearIndicator>().bind()
+
         tabLayout.buildText<BaseText>()
             .setNormalTextBold(true)
             .setSelectTextSize(15f)
             .setSelectTextBold(true).bind()
-
     }
 }

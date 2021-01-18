@@ -55,46 +55,48 @@ open class BaseText {
     }
 
     fun bind() {
-        tabLayout?.apply {
-            for (i in 0 until tabCount) {
-                getTabAt(i)?.let {
-                    it.customView = TextView(context).apply {
-                        text = it.text
-                        textSize = if (isSelected) selectTextSize else normalTextSize
-                        if (isSelected)
+        tabLayout?.post {
+            tabLayout?.apply {
+                for (i in 0 until tabCount) {
+                    getTabAt(i)?.let {
+                        it.customView = TextView(context).apply {
+                            text = it.text
+                            textSize = if (selectedTabPosition==i) selectTextSize else normalTextSize
+                            if (selectedTabPosition==i)
+                                paint?.isFakeBoldText = selectTextBold
+                            else
+                                paint?.isFakeBoldText = normalTextBold
+                            gravity = Gravity.CENTER
+                            setTextColor(tabTextColors)
+                        }
+                    }
+                }
+
+                addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+                    override fun onTabReselected(tab: TabLayout.Tab?) {
+                        (tab?.customView as? TextView)?.apply {
+                            textSize = selectTextSize
                             paint?.isFakeBoldText = selectTextBold
-                        else
+                        }
+                    }
+
+                    override fun onTabUnselected(tab: TabLayout.Tab?) {
+                        (tab?.customView as? TextView)?.apply {
+                            textSize = normalTextSize
                             paint?.isFakeBoldText = normalTextBold
-                        gravity = Gravity.CENTER
-                        setTextColor(tabTextColors)
+                        }
                     }
-                }
+
+                    override fun onTabSelected(tab: TabLayout.Tab?) {
+                        (tab?.customView as? TextView)?.apply {
+                            textSize = selectTextSize
+                            paint?.isFakeBoldText = selectTextBold
+                        }
+                    }
+
+                })
             }
-
-            addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-                override fun onTabReselected(tab: TabLayout.Tab?) {
-                    (tab?.customView as? TextView)?.apply {
-                        textSize = selectTextSize
-
-                        paint?.isFakeBoldText = selectTextBold
-                    }
-                }
-
-                override fun onTabUnselected(tab: TabLayout.Tab?) {
-                    (tab?.customView as? TextView)?.apply {
-                        textSize = normalTextSize
-                        paint?.isFakeBoldText = normalTextBold
-                    }
-                }
-
-                override fun onTabSelected(tab: TabLayout.Tab?) {
-                    (tab?.customView as? TextView)?.apply {
-                        textSize = selectTextSize
-                        paint?.isFakeBoldText = selectTextBold
-                    }
-                }
-
-            })
         }
+
     }
 }
