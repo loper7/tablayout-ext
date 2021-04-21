@@ -27,7 +27,7 @@ Step 2. 添加 Gradle依赖
 dependencies {
     ...
     implementation 'com.google.android.material:material:1.2.1'//google material 包
-    implementation 'com.github.loperSeven:tablayout-ext:$version'//具体版本请看顶部jitpack标识，仅支持androidx
+    implementation 'com.github.loperSeven:tablayout-ext:0.1.3'//  最新版本请看顶部jitpack标识，仅支持androidx
 }
 
 
