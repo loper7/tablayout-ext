@@ -12,6 +12,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import com.google.android.material.tabs.TabLayout
 import com.loper7.tab_expand.R
+import com.loper7.tab_expand.ext.toPx
 
 
 /**
@@ -51,6 +52,12 @@ open class CustomIndicator : BaseIndicator() {
                 tabLayout?.setSelectedTabIndicator(drawable)
             else
                 tabLayout?.setSelectedTabIndicator(layerDrawable)
+
+
+            if (height == 0)
+                tabLayout?.setSelectedTabIndicatorHeight(3.toPx())
+            else
+                tabLayout?.setSelectedTabIndicatorHeight(height)
 
             //对自适应宽度进行处理
             if (width <= 0 && tabLayout?.tabSelectedIndicator is LayerDrawable) {

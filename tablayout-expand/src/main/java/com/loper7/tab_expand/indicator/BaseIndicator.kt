@@ -31,6 +31,9 @@ abstract class BaseIndicator {
     fun bindTabLayout(tabLayout: TabLayout) {
         this.tabLayout = tabLayout
         this.context = tabLayout.context
+
+
+
     }
 
     fun setColor(@ColorInt color: Int): BaseIndicator {

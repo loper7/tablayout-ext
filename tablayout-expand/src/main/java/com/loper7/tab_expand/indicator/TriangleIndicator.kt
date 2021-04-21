@@ -51,6 +51,11 @@ open class TriangleIndicator : BaseIndicator() {
             if (height == 0)
                 height = 12.toPx()
 
+            if (height == 0)
+                tabLayout?.setSelectedTabIndicatorHeight(3.toPx())
+            else
+                tabLayout?.setSelectedTabIndicatorHeight(height)
+
             val layerDrawable = LayerDrawable(arrayOf(drawable))
             layerDrawable.setLayerHeight(0, height)
             layerDrawable.setLayerWidth(0, width)

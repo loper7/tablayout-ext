@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import com.google.android.material.tabs.TabLayout
 import com.loper7.tab_expand.ext.buildIndicator
 import com.loper7.tab_expand.ext.buildText
 import com.loper7.tab_expand.ext.toPx
@@ -57,6 +58,12 @@ class LinearIndicatorFragment :Fragment() {
         tabLayout4.setupWithViewPager(viewPager)
 
 
+//        tabLayout_default.buildText<BaseText>()
+//            .setNormalTextBold(false)
+//            .setSelectTextBold(true)
+//            .setNormalTextSize(16f)
+//            .setSelectTextSize(18f)
+//            .bind()
         // LinearIndicator
         tabLayout.buildIndicator<LinearIndicator>().bind()
         tabLayout.buildText<BaseText>()
@@ -68,7 +75,7 @@ class LinearIndicatorFragment :Fragment() {
         // LinearIndicator (w=35,h=3.5)
         tabLayout1.buildIndicator<LinearIndicator>()
             .setWidth(35.toPx())
-            .setHeight(3.5.toPx())
+            .setHeight(4.toPx())
             .bind()
         tabLayout1.buildText<BaseText>()
             .setNormalTextBold(false)
