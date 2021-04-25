@@ -36,7 +36,6 @@ open class CustomIndicator : BaseIndicator() {
         return this
     }
 
-    @SuppressLint("NewApi")
     override fun bind() {
         tabLayout?.post {
 
@@ -44,9 +43,11 @@ open class CustomIndicator : BaseIndicator() {
                 height = tabLayout?.height!!
 
             val layerDrawable = LayerDrawable(arrayOf(drawable))
-            layerDrawable.setLayerHeight(0, height)
-            layerDrawable.setLayerWidth(0, width)
-            layerDrawable.setLayerGravity(0, Gravity.CENTER)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                layerDrawable.setLayerHeight(0, height)
+                layerDrawable.setLayerWidth(0, width)
+                layerDrawable.setLayerGravity(0, Gravity.CENTER)
+            }
 
             if (width == 0 && height == 0)
                 tabLayout?.setSelectedTabIndicator(drawable)
@@ -61,10 +62,12 @@ open class CustomIndicator : BaseIndicator() {
 
             //对自适应宽度进行处理
             if (width <= 0 && tabLayout?.tabSelectedIndicator is LayerDrawable) {
-                (tabLayout?.tabSelectedIndicator as LayerDrawable).setLayerWidth(
-                    0,
-                    tabLayout?.getTabAt(0)!!.view.width
-                )
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    (tabLayout?.tabSelectedIndicator as LayerDrawable).setLayerWidth(
+                        0,
+                        tabLayout?.getTabAt(0)!!.view.width
+                    )
+                }
                 tabLayout?.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
                     override fun onTabReselected(tab: TabLayout.Tab?) {
                     }
@@ -74,10 +77,12 @@ open class CustomIndicator : BaseIndicator() {
 
                     override fun onTabSelected(tab: TabLayout.Tab?) {
                         tab?.apply {
-                            (tabLayout?.tabSelectedIndicator as LayerDrawable).setLayerWidth(
-                                0,
-                                tab.view.width
-                            )
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                (tabLayout?.tabSelectedIndicator as LayerDrawable).setLayerWidth(
+                                    0,
+                                    tab.view.width
+                                )
+                            }
                         }
                     }
 

@@ -5,6 +5,7 @@ import android.graphics.Paint
 import android.graphics.drawable.LayerDrawable
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.RoundRectShape
+import android.os.Build
 import android.view.Gravity
 import com.google.android.material.tabs.TabLayout
 import com.loper7.tab_expand.ext.toPx
@@ -26,7 +27,6 @@ open class LinearIndicator : BaseIndicator() {
         return this
     }
 
-    @SuppressLint("NewApi")
     override fun bind() {
         tabLayout?.post {
             val drawable = ShapeDrawable()
@@ -42,9 +42,12 @@ open class LinearIndicator : BaseIndicator() {
             drawable.paint.style = Paint.Style.FILL
 
             val layerDrawable = LayerDrawable(arrayOf(drawable))
-            layerDrawable.setLayerHeight(0, height)
-            layerDrawable.setLayerWidth(0, width)
-            layerDrawable.setLayerGravity(0, Gravity.CENTER)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                layerDrawable.setLayerHeight(0, height)
+                layerDrawable.setLayerWidth(0, width)
+                layerDrawable.setLayerGravity(0, Gravity.CENTER)
+            }
+
 
             if (width == 0 && height == 0)
                 tabLayout?.setSelectedTabIndicator(drawable)
@@ -58,10 +61,12 @@ open class LinearIndicator : BaseIndicator() {
 
             //对自适应宽度进行处理
                 if (width <= 0 && tabLayout?.tabSelectedIndicator is LayerDrawable) {
-                    (tabLayout?.tabSelectedIndicator as LayerDrawable).setLayerWidth(
-                        0,
-                        tabLayout?.getTabAt(0)!!.view.width
-                    )
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        (tabLayout?.tabSelectedIndicator as LayerDrawable).setLayerWidth(
+                            0,
+                            tabLayout?.getTabAt(0)!!.view.width
+                        )
+                    }
                     tabLayout?.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
                         override fun onTabReselected(tab: TabLayout.Tab?) {
                         }
@@ -71,10 +76,12 @@ open class LinearIndicator : BaseIndicator() {
 
                         override fun onTabSelected(tab: TabLayout.Tab?) {
                             tab?.apply {
-                                (tabLayout?.tabSelectedIndicator as LayerDrawable).setLayerWidth(
-                                    0,
-                                    tab.view.width
-                                )
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                    (tabLayout?.tabSelectedIndicator as LayerDrawable).setLayerWidth(
+                                        0,
+                                        tab.view.width
+                                    )
+                                }
                             }
                         }
 

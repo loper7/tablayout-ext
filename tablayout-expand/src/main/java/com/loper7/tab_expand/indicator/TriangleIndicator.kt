@@ -32,7 +32,6 @@ open class TriangleIndicator : BaseIndicator() {
     }
 
 
-    @SuppressLint("NewApi")
     override fun bind() {
         tabLayout?.post {
             if(height==MATCH)
@@ -57,9 +56,12 @@ open class TriangleIndicator : BaseIndicator() {
                 tabLayout?.setSelectedTabIndicatorHeight(height)
 
             val layerDrawable = LayerDrawable(arrayOf(drawable))
-            layerDrawable.setLayerHeight(0, height)
-            layerDrawable.setLayerWidth(0, width)
-            layerDrawable.setLayerGravity(0, Gravity.CENTER)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                layerDrawable.setLayerHeight(0, height)
+                layerDrawable.setLayerWidth(0, width)
+                layerDrawable.setLayerGravity(0, Gravity.CENTER)
+            }
+
 
             tabLayout?.setSelectedTabIndicator(layerDrawable)
         }
