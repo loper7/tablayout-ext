@@ -1,6 +1,6 @@
 ![](https://github.com/loperSeven/tablayout-ext/blob/master/image/logo.png)
 <br/>
-[![](https://jitpack.io/v/loperSeven/tablayout-ext.svg)](https://jitpack.io/#loperSeven/DateTimePicker)&ensp;[![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)&ensp;[![](https://img.shields.io/badge/platform-android-green)](https://github.com/loperSeven)&ensp;[![](https://img.shields.io/badge/license-MIT-blue)](https://opensource.org/licenses/MIT)
+[![](https://jitpack.io/v/loperSeven/tablayout-ext.svg)](https://jitpack.io/#loperSeven/DateTimePicker)&ensp;[![API](https://img.shields.io/badge/API-23%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)&ensp;[![](https://img.shields.io/badge/platform-android-green)](https://github.com/loperSeven)&ensp;[![](https://img.shields.io/badge/license-MIT-blue)](https://opensource.org/licenses/MIT)
 <br/>
 ## Language
 中文 | [English](https://github.com/loperSeven/tablayout-ext/blob/master/README_EN.md)
